@@ -44,9 +44,14 @@ namespace CheeseMVC.Controllers
 
         [HttpPost]
         [Route("/Cheese/Remove")]
-        public IActionResult RemoveCheese(string name)
+        public IActionResult RemoveCheese(string[] name)
         {
-            Cheeses.Remove(name);
+            foreach (string cheese in name)
+            {
+                Cheeses.Remove(cheese);
+
+            }
+            //Cheeses.Remove(name);
             return Redirect("/cheese");
         }
         
